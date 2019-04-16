@@ -5,5 +5,28 @@
 # Time complexity: ?
 # Space complexity: ?
 def string_anagrams(str1, str2)
-  raise NotImplementedError
+  return false if !str1 || !str2
+  return false if str1.length != str2.length
+  str1 = merge_sort(str1)
+  str2 = merge_sort(str2)
+end
+
+def merge_sort(array)
+  return array if array.length <= 1
+
+  mid_index = (array.length / 2).floor
+  left = merge_sort(array[0...mid_index])
+  right = merge_sort(array[mid_index...array.length])
+  return merge(left, right)
+end
+
+def merge(left, right)
+  return right if left.length == 0
+  return left if right.length == 0
+
+  if left[0] < right[0]
+    return left[0] + merge(left[1..left.length], right)
+  else
+    return right[0] + merge(left, right[1..right.length])
+  end
 end
