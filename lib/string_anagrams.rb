@@ -9,6 +9,12 @@ def string_anagrams(str1, str2)
   return false if str1.length != str2.length
   str1 = merge_sort(str1)
   str2 = merge_sort(str2)
+  i = 0
+  while i < str2.length
+    return false if str1[i] != str2[i]
+    i += 1
+  end
+  return true
 end
 
 def merge_sort(array)
