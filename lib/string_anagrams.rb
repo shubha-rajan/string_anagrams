@@ -2,8 +2,8 @@
 # Returns true if the two input strings are anagrams of each other.
 # Returns false otherwise.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: nlog(n) because of 2 separate merge sort calls and one simultaneous iteration through both arrays
+# Space complexity: n because of merge sort calls
 def string_anagrams(str1, str2)
   return false if !str1 || !str2
   return false if str1.length != str2.length
